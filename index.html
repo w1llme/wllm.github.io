@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1</title>
+        <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+</head>
+<body>
+  <div id="turtle-container">
+    <py-script>
+      import turtle
+
+      Скрываем черепаху
+      turtle.hideturtle()
+
+      Устанавливаем цвет пера
+      turtle.color("red")
+
+      Устанавливаем скорость рисования (0 - самая быстрая)
+      turtle.speed(0)
+
+
+      def curve():
+          for i in range(200):
+              turtle.right(1)
+              turtle.forward(1)
+
+
+      turtle.begin_fill()
+      turtle.left(140)
+      turtle.forward(113)
+      curve()
+      turtle.left(120)
+      curve()
+      turtle.forward(112)
+      turtle.end_fill()
+
+      #turtle.done()
+    </py-script>
+  </div>
+</body>
+</html>
