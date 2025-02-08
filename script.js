@@ -3,8 +3,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const btnRect = btn.getBoundingClientRect();
 
-    const centerX = (window.innerWidth - btnRect.width) / 2;
-    const centerY = (window.innerHeight - btnRect.height) / 2;
+    const centerX = (window.innerWidth - btnRect.width) / 2 - 64;
+    const centerY = (window.innerHeight - btnRect.height) / 2 + 33;
 
     btn.style.position = "fixed";
     btn.style.left = `${centerX}px`;
