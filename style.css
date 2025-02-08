@@ -1,0 +1,41 @@
+body {
+  background-color: black;
+  color: white;
+  font-family: sans-serif; /*  Укажите подходящий шрифт */
+  margin: 0; /* Убрать отступы по умолчанию у body */
+  padding: 0; /* Убрать отступы по умолчанию у body */
+  height: 100vh; /* Занять всю высоту экрана */
+  display: flex;
+  justify-content: center; /* Центрирование по горизонтали */
+  align-items: center; /* Центрирование по вертикали */
+}
+
+.container {
+  text-align: center;
+}
+
+a {
+  color: white; /* Цвет ссылок тоже белый */
+}
+
+/* Дополнительно: сброс стилей по умолчанию для других элементов,
+   если это необходимо, например: */
+
+h1, h2, h3, h4, h5, h6, p, ul, ol {
+  color: white;
+}
+
+/* Дополнительно: если используете кнопки или формы, тоже необходимо
+   настроить цвет */
+
+button {
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+}
+
+input[type="text"], input[type="email"], textarea {
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+}
