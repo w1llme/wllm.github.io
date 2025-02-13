@@ -1,41 +1,24 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const btn = document.getElementById("runawayBtn");
+const button = document.getElementById('teleportButton');
 
-    const btnRect = btn.getBoundingClientRect();
+// Функция для телепортации кнопки
+button.addEventListener('mouseover', () => {
+    const screenWidth = window.innerWidth;
+    const screenHeight = window.innerHeight;
 
-    const centerX = (window.innerWidth - btnRect.width) / 2 - 64;
-    const centerY = (window.innerHeight - btnRect.height) / 2 + 33;
+    const buttonWidth = button.offsetWidth;
+    const buttonHeight = button.offsetHeight;
 
-    btn.style.position = "fixed";
-    btn.style.left = `${centerX}px`;
-    btn.style.top = `${centerY}px`;
-    function getMouseCoords(event, btnRect) {
-      return {
-        x: event.clientX - (btnRect.left + window.scrollX + btnRect.width / 2),
-        y: event.clientY - (btnRect.top + window.scrollY + btnRect.height / 2),
-      };
-    }
-    function calculateNewPosition(deltaX, deltaY, btnRect) {
-      let newX = btnRect.left + deltaX + window.scrollX;
-      let newY = btnRect.top + deltaY + window.scrollY;
+    const randomX = Math.floor(Math.random() * (screenWidth - buttonWidth));
+    const randomY = Math.floor(Math.random() * (screenHeight - buttonHeight));
 
-      newX = Math.max(0, Math.min(newX, window.innerWidth - btnRect.width));
-      newY = Math.max(0, Math.min(newY, window.innerHeight - btnRect.height));
+    button.style.left = `${randomX}px`;
+    button.style.top = `${randomY}px`;
+});
 
-      return { newX, newY };
-    }
-
-    btn.addEventListener("mousemove", (event) => {
-      const btnRect = btn.getBoundingClientRect();
-      const maxDistance = 150;
-      const mousePos = getMouseCoords(event, btnRect);
-
-      const deltaX = mousePos.x > 0 ? -maxDistance : maxDistance;
-      const deltaY = mousePos.y > 0 ? -maxDistance : maxDistance;
-
-      const { newX, newY } = calculateNewPosition(deltaX, deltaY, btnRect);
-
-      btn.style.left = `${newX}px`;
-      btn.style.top = `${newY}px`;
-    });
-  });
+// Функция для изменения текста кнопки при нажатии
+button.addEventListener('click', () => {
+    button.textContent = "пачему";
+    button.style.backgroundColor = "#4CAF50"; // Меняем цвет кнопки для визуального эффекта
+    button.style.color = "#fff"; // Меняем цвет текста
+    button.disabled = true; // Делаем кнопку неактивной после нажатия
+});
