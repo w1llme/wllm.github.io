@@ -1,15 +1,88 @@
-body {
-    margin: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f0f0f0;
+/* Стили для фоновой картинки */
+.background-image {
+    position: fixed; /* Фиксируем фон */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('heart.png'); /* Путь к вашей картинке */
+    background-size: cover; /* Растягиваем картинку на весь экран */
+    background-position: center; /* Центрируем картинку */
+    z-index: -1; /* Отправляем фон на задний план */
+    transition: opacity 0.5s ease; /* Плавное исчезновение */
 }
 
-button {
+/* Стили для основного контента */
+#container {
+    position: absolute; /* Абсолютное позиционирование для центрирования */
+    top: 50%; /* Сдвигаем контейнер на 50% вниз */
+    left: 50%; /* Сдвигаем контейнер на 50% вправо */
+    transform: translate(-50%, -50%); /* Центрируем контейнер */
+    text-align: center;
+    z-index: 1;
+}
+/* Стили для кнопок и заголовка */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+#noButton, #yesButton {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
-    position: absolute;
+    transition: all 0.3s ease;
+    border: none;
+    color: white;
+}
+
+#noButton {
+    background-color: #ff6b6b;
+}
+
+#yesButton {
+    background-color: #4caf50;
+}
+
+/* Стили для GIF */
+#image {
+    max-width: 100%;
+    max-height: 80vh;
+    width: 200px; /* Новая ширина */
+    height: 200px;
+    display: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+}
+
+/* Стили для заголовка */
+#title {
+    color: white;
+    font-size: 32px;
+    transition: all 0.5s ease;
+}
+
+/* Класс для радужного эффекта и пульсации */
+.rainbow-text {
+    animation: rainbow 8s infinite, pulse 0.8s infinite;
+}
+
+/* Анимация для радужного перелива */
+@keyframes rainbow {
+    0% { color: red; }
+    14% { color: orange; }
+    28% { color: yellow; }
+    42% { color: green; }
+    57% { color: blue; }
+    71% { color: indigo; }
+    85% { color: violet; }
+    100% { color: red; }
+}
+
+/* Анимация для пульсации */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
 }
